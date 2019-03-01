@@ -48,3 +48,10 @@ class Scheduling_Algos(object):
             w = [int(x) for x in self.tat]
             avg = statistics.mean(w)
             file.write("mean TAT:{}".format(str(avg)))
+
+
+
+if __name__ == "__main__":
+    s = Scheduling_Algos()
+    s.read_file()
+    s.schedule_via_fcfs()
