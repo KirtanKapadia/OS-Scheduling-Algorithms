@@ -25,7 +25,7 @@ class Scheduling_Algos(object):
 
     def schedule_via_fcfs(self):
         with open("FCFS.txt","w") as file:
-            for i in range(len(self.id)):
+            for i in range(4):
 
                 if i == 0:
 
@@ -37,8 +37,10 @@ class Scheduling_Algos(object):
                     file.write(string)
 
                 else:
-                    self.completion_time.append(str(sum((int(self.bt[:i-1])+int(self.bt[i])))))
-
+                    b = [int(x) for x in self.bt]
+                    print(b)
+                    self.completion_time.append(str(sum(b[:i])+b[i]))
+                    print(self.completion_time)
                     x = str(int(self.completion_time[i]) - int(self.at[i]))
                     self.tat.append(x)
 
