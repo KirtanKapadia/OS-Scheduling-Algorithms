@@ -23,12 +23,13 @@ class Scheduling_Algos(object):
                 self.bt.append(k[2])
                 self.priority.append(k[3])
 
+    #Scheduling using First Come First Serve Algorithm
     def schedule_via_fcfs(self):
         with open("FCFS.txt","w") as file:
 
             for i in range(len(self.id)):
 
-                if i == 0:
+                if i == 0:                                                      #This is for the initial process
 
                     self.completion_time.append(self.bt[i])
                     self.wt.append("0")
@@ -40,12 +41,12 @@ class Scheduling_Algos(object):
                 else:
                     b = [int(x) for x in self.bt]
 
-                    self.completion_time.append(str(sum(b[:i])+b[i]))
+                    self.completion_time.append(str(sum(b[:i])+b[i]))           #Calculating Completion Time
 
-                    x = str(int(self.completion_time[i]) - int(self.at[i]))
+                    x = str(int(self.completion_time[i]) - int(self.at[i]))     #Calculating Turn around time
                     self.tat.append(x)
 
-                    y = str(int(self.tat[i]) - int(self.bt[i]))
+                    y = str(int(self.tat[i]) - int(self.bt[i]))                 #Calculating Waiting Time
                     self.wt.append(y)
 
                     string = "{},{},{},{}\n".format(self.id[i],self.wt[i],self.completion_time[i],self.tat[i])
@@ -54,11 +55,12 @@ class Scheduling_Algos(object):
             w = [int(x) for x in self.wt]
             avg = statistics.mean(w)
             file.write("mean WT:{}\n".format(str(avg)))
+
             w = [int(x) for x in self.tat]
             avg = statistics.mean(w)
-
             file.write("mean TAT:{}\n".format(str(avg)))
 
+    
 
 if __name__ == "__main__":
     s = Scheduling_Algos()
