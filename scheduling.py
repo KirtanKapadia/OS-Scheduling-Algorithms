@@ -56,12 +56,8 @@ class Scheduling_Algos(object):
             file.write("mean WT:{}\n".format(str(avg)))
             w = [int(x) for x in self.tat]
             avg = statistics.mean(w)
-<<<<<<< HEAD
-            file.write("mean TAT:{}\n".format(str(avg)))
-=======
-            file.write("mean TAT:{}".format(str(avg)))
->>>>>>> 3791aae689956e6af6e40201078225a0d7c18b5b
 
+            file.write("mean TAT:{}\n".format(str(avg)))
 
 
 if __name__ == "__main__":
