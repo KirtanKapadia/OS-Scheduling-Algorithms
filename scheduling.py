@@ -1,5 +1,6 @@
 import statistics
 
+
 class Scheduling_Algos(object):
 
     def __init__(self):
@@ -60,7 +61,6 @@ class Scheduling_Algos(object):
             avg = statistics.mean(w)
             file.write("mean TAT:{}\n".format(str(avg)))
 
-    
 
 if __name__ == "__main__":
     s = Scheduling_Algos()
